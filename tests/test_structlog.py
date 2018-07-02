@@ -90,8 +90,8 @@ def test_exception(slog, strio):
             exception = RuntimeError("error")
             raise exception
 
-    assert strio.getvalue().strip() == """
+    assert strio.getvalue().replace("RuntimeError('error')", "RuntimeError('error',)") == """
 {"a": 1, "b": 2, "event": "one", "level": "info", "scope_id": 1, "scope_state": "enter"}
 {"e": 5, "event": "one", "level": "info", "scope_id": 1, "scope_state": "step1"}
 {"c": 3, "d": 4, "event": "one", "exc_info": "RuntimeError('error',)", "level": "error", "scope_id": 1, "scope_state": "exit", "scope_status": "exception"}
-""".strip()  # noqa: E501
+""".lstrip()  # noqa: E501

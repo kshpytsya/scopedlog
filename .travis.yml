@@ -1,0 +1,21 @@
+group: travis_latest
+sudo: true
+language: python
+install:
+  - pip install --upgrade setuptools pip
+  - pip install -r requirements-dev.txt
+  - pip install tox-travis
+  - pip list --format columns
+python:
+  - "3.6"
+  - "3.7-dev"
+script:
+  - inv check docs test build
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: twine upload dist/*.tar.gz && twine upload dist/*.whl
+    on:
+      repo: kshpytsya/scopedlog
+      tags: true
+      python: 3.6

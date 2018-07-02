@@ -3,6 +3,12 @@
 # scopedlog
 A library for scoped logging on top of [structlog](http://www.structlog.org) (or similar sinks), inspired by the idea of an apparently defunct [lithoxyl](https://github.com/mahmoud/lithoxyl). Note that I ([kshpytsya](https://github.com/kshpytsya)) have deliberatly not looked into actual lithoxyl's implementation to keep a fresh mind.
 
+Install:
+
+```
+pip install 'scopedlog[structlog]'
+```
+
 Here is an example:
 
 ```python

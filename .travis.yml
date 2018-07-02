@@ -10,7 +10,7 @@ python:
   - "3.6"
   - "3.7-dev"
 script:
-  - inv check docs test build
+  - inv check test build
 deploy:
   - provider: script
     skip_cleanup: true
